@@ -1,15 +1,4 @@
-
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
+" Modified version of example vimrc from Bram
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -22,18 +11,10 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set nobackup		" do not keep a backup file
-endif
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -84,7 +65,6 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
@@ -96,14 +76,16 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-" Personal settings added by me
-
+" Stuff I made for myself
+"
+" localvimrc stuff - might add back
 " Don't ask before loading local vimrcs - good for now, might change later.
-let g:localvimrc_ask=0
+" let g:localvimrc_ask=0
 " Don't run vimrc in a sandbox - seems to break match
-let g:localvimrc_sandbox=0
+" let g:localvimrc_sandbox=0
 
-" Enable line numbers
+" Enable line numbers - as of 7.4 this is relative numbers and absolute
+" on current line
 set number
 set relativenumber
 " Always use a status line
@@ -112,6 +94,7 @@ set laststatus=2
 set guioptions-=T
 set guioptions-=m
 set guioptions-=r
+" Font
 set guifont=Consolas:h11:cANSI
 
 " Open NERDTree with F2
@@ -128,12 +111,14 @@ map <F2> :NERDTreeToggle<CR>
 " let g:easytags_on_cursorhold = 0
 
 " Use spaces instead of tabs, with width 4. Indenting is also width 4. Literal
-" tabs are 8. Deleting whitespace deletes by tabs.
-set tabstop=8
+" tabs are 4. Deleting whitespace deletes by tabs.
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+set autoindent		" always set autoindenting on
 
+" Colorscheme in terminal
 if !has('gui_running')
     color relaxedgreen
 endif
@@ -145,8 +130,8 @@ endif
 " nnoremap <C-J> i<CR><Esc>k$
 
 " LatexSuite commands
-let g:tex_flavor='latex'
-set grepprg=grep\ -nH\ $*
+" let g:tex_flavor='latex'
+" set grepprg=grep\ -nH\ $*
 
 " command Gh GhciFile
 
