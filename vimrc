@@ -137,3 +137,28 @@ endif
 
 " No need to remember to run helptags anymore
 " helptags ~/.vim/doc
+
+set encoding=utf-8
+" starts scrolling on 3rd line from top/bottom
+set scrolloff=3
+" Sets completion to something sane - see help
+set wildmenu
+set wildmode=list:longest
+" Visual flash instead of beep
+set visualbell
+" Highlight line cursor is on
+set cursorline
+" Highlight in 'error' column 80 - try not to extend past this
+set colorcolumn=80
+" Automatically use magic mode for regexen
+" doesn't affect substitutions, add a mapping for that
+nnoremap / /\v
+vnoremap / /\v
+" Regexen ignore case unless a capital appears
+set ignorecase
+set smartcase
+" Subsittuions are global in line by default
+set gdefault
+set incsearch
+" When closing a bracket briefly jump to matching one
+set showmatch
