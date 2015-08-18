@@ -162,3 +162,28 @@ set gdefault
 set incsearch
 " When closing a bracket briefly jump to matching one
 set showmatch
+" Add a mapping to clear search highlighting
+nnoremap <leader><space> :noh<cr>
+
+" Text formatting options:
+"   r: insert comment leader after hitting Enter in insert mode
+"   q: format comments
+"   n: Recognize numbered lists when formatting
+"   1: wrap after 1 letter words instead of before if possible
+"   j: Attempt to delete extraneous comment leaders when joinging lines
+set formatoptions=rqn1j
+
+" Default to moving by display lines - allow moving by file lines
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+" Select linewise to the end of last pasted text
+nnoremap <leader>v V`]
+
+" Quicker window navigation - just a chord instead of chord AND sequence
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
