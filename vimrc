@@ -194,6 +194,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Quicker tab navigation, using same mnemonics as windows
-nnoremap <C-S-H> gT
-nnoremap <C-S-L> gt
+" Quicker tab navigation, using similar mnemonics as windows
+" Alt is a pain to press see if there's a better way
+nnoremap <A-h> gT
+nnoremap <A-l> gt
