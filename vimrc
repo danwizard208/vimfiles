@@ -21,7 +21,7 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
 " Don't use Ex mode, use Q for formatting
-map Q gq
+noremap Q gq
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -32,12 +32,9 @@ if has('mouse')
   set mouse=a
 endif
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
+" Syntax and search highlighting 
+syntax on
+set hlsearch
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
