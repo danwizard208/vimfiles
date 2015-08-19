@@ -1,3 +1,4 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 " Modified version of example vimrc from Bram
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
