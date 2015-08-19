@@ -1,4 +1,7 @@
+" Pathogen setup
 runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
 " Modified version of example vimrc from Bram
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -144,7 +147,7 @@ set encoding=utf-8
 set scrolloff=3
 " Sets completion to something sane - see help
 set wildmenu
-set wildmode=list:longest
+set wildmode=list:longest,full
 " Visual flash instead of beep
 set visualbell
 " Highlight line cursor is on
