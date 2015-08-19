@@ -187,3 +187,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Quicker tab navigation, using same mnemonics as windows
+nnoremap <C-S-H> gT
+nnoremap <C-S-L> gt
