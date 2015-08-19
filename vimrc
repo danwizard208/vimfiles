@@ -136,8 +136,8 @@ endif
 
 " command Gh GhciFile
 
-" No need to remember to run helptags anymore
-" helptags ~/.vim/doc
+" With pathogen, need to use included Helptags function
+Helptags
 
 set encoding=utf-8
 " starts scrolling on 3rd line from top/bottom
