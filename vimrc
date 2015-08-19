@@ -166,6 +166,11 @@ set showmatch
 " Add a mapping to clear search highlighting
 nnoremap <leader><space> :noh<cr>
 
+" Add a mapping to maximize the window when on Windows
+if has("win32")
+    nnoremap <leader><cr> :simalt ~x<cr>
+endif
+
 " Text formatting options:
 "   r: insert comment leader after hitting Enter in insert mode
 "   q: format comments
