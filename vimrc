@@ -151,6 +151,8 @@ set visualbell
 set cursorline
 " Highlight in 'error' column 80 - try not to extend past this
 set colorcolumn=80
+" Add a map to clear the colorcolumn when it's distracting
+nnoremap <leader>` :set colorcolumn=0<CR>
 " Automatically use magic mode for regexen
 " doesn't affect substitutions, add a mapping for that
 nnoremap / /\v
