@@ -1,3 +1,8 @@
 vim-pathogen		https://github.com/tpope/vim-pathogen
 vim-obsession		https://github.com/tpope/vim-obsession
+vim-surround		https://github.com/tpope/vim-surround
+vim-repeat			https://github.com/tpope/vim-repeat
+vim-unimpaired		https://github.com/tpope/vim-unimpaired
+vim-commentary		https://github.com/tpope/vim-commentary
+vim-fugitive		https://github.com/tpope/vim-fugitive
 nerdtree			https://github.com/scrooloose/nerdtree
