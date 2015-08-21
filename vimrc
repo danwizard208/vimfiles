@@ -100,6 +100,10 @@ set guifont=Consolas:h11:cANSI
 
 " Open NERDTree with F2
 map <F2> :NERDTreeToggle<CR>
+" NERDTree should close when opening a file
+let NERDTreeQuitOnOpen=1
+" Show line numbers in NERDTree window
+let NERDTreeShowLineNumbers=1
 
 " " Use Omni completion
 " set ofu=syntaxcomplete#Complete
