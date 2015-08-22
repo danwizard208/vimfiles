@@ -117,12 +117,13 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-set autoindent		" always set autoindenting on
+" Always set autoindenting on
+set autoindent
 
 " Colorscheme in terminal
-if !has('gui_running')
-    color relaxedgreen
-endif
+" if !has('gui_running')
+"     color relaxedgreen
+" endif
 
 " Shift-Enter for blank line before, Enter for a blank line after, 
 " Ctrl-J to split line here
@@ -140,8 +141,8 @@ endif
 Helptags
 
 set encoding=utf-8
-" starts scrolling on 3rd line from top/bottom
-set scrolloff=3
+" starts scrolling on 2nd line from top/bottom
+set scrolloff=2
 " Sets completion to something sane - see help
 set wildmenu
 set wildmode=list:longest,full
