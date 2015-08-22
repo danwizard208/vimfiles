@@ -6,3 +6,4 @@ vim-unimpaired		https://github.com/tpope/vim-unimpaired
 vim-commentary		https://github.com/tpope/vim-commentary
 vim-fugitive		https://github.com/tpope/vim-fugitive
 nerdtree			https://github.com/scrooloose/nerdtree
+vim-indent-guides	https://github.com/nathanaelkane/vim-indent-guides
