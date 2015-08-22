@@ -85,8 +85,14 @@ endif
 " Don't run vimrc in a sandbox - seems to break match
 " let g:localvimrc_sandbox=0
 
-" Enable line numbers - as of 7.4 this is relative numbers and absolute
-" on current line
+" Make Y behave like C and D (screw vi-compatible)
+nnoremap Y y$
+
+" Use the system clipboard as the default register
+set clipboard=unnamed
+
+" Enable line numbers -
+" as of 7.4 this is relative numbers with absolute on current line
 set number
 set relativenumber
 " Always use a status line
@@ -100,6 +106,10 @@ set guifont=Consolas:h11:cANSI
 
 " Open NERDTree with F2
 map <F2> :NERDTreeToggle<CR>
+" NERDTree should close when opening a file
+let NERDTreeQuitOnOpen=1
+" Show line numbers in NERDTree window
+let NERDTreeShowLineNumbers=1
 
 " " Use Omni completion
 " set ofu=syntaxcomplete#Complete
