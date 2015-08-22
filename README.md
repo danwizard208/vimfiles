@@ -1,5 +1,9 @@
 # vimfiles
 My vim customization repo
 
-Currently just has a fairly bare bones vimrc in it.
-I intend to add plugins using Pathogen, yet to decide how best to track subrepos.
+Features:
+- A moderately customized vimrc
+- Pathogen plugin management
+  - git ignores the subrepos;
+  - Instead track a list of plugins, and use a couple of scripts to
+    automatically synch them.
