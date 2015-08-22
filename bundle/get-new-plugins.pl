@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+#Like update-plugins.pl, but doesn't git pull on existing plugins
+
 open PLUGINS, "plugins";
 @plugins = <PLUGINS>;
 foreach $plugin (@plugins)
@@ -13,13 +15,5 @@ foreach $plugin (@plugins)
         # The plugin doesn't have a directory yet; clone the url
         print "Running 'git clone $url'\n";
         system("git clone $url");
-    }
-    else
-    {
-        # The plugin already has a directory; pull latest from repo
-        chdir $name;
-        print "Running 'git pull' on $name\n";
-        system("git pull");
-        chdir "..";
     }
 }
