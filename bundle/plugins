@@ -7,3 +7,5 @@ vim-commentary		https://github.com/tpope/vim-commentary
 vim-fugitive		https://github.com/tpope/vim-fugitive
 nerdtree			https://github.com/scrooloose/nerdtree
 vim-indent-guides	https://github.com/nathanaelkane/vim-indent-guides
+vim-colors-solarize	https://github.com/altercation/vim-colors-solarized
+vim-flagship		https://github.com/tpope/vim-flagship

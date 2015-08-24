@@ -95,14 +95,22 @@ set clipboard=unnamed
 " as of 7.4 this is relative numbers with absolute on current line
 set number
 set relativenumber
-" Always use a status line
+" Always use a status line and a tab line
 set laststatus=2
+set showtabline=2
 " No toolbar in the GUI
 set guioptions-=T
 set guioptions-=m
 set guioptions-=r
+" Plaintext tab line in the GUI
+set guioptions-=e
 " Font
 set guifont=Consolas:h11:cANSI
+" Use the solarized colorscheme, good light/dark most everywhere
+colorscheme solarized
+" Set to dark background by default, and map <F5> to toggle
+set background=dark
+call togglebg#map("<F5>")
 
 " Open NERDTree with F2
 map <F2> :NERDTreeToggle<CR>
