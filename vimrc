@@ -123,6 +123,8 @@ map <F2> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
 " Show line numbers in NERDTree window
 let NERDTreeShowLineNumbers=1
+" Show the bookmark bar by default
+let NERDTreeShowBookmarks=1
 
 " " Use Omni completion
 " set ofu=syntaxcomplete#Complete
