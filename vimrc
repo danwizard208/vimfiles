@@ -108,8 +108,8 @@ set guioptions-=e
 set guifont=Consolas:h11:cANSI
 " Use the solarized colorscheme, good light/dark most everywhere
 colorscheme solarized
-" Set to dark background by default, and map <F5> to toggle
-set background=dark
+" Set to light background by default, and map <F5> to toggle
+set background=light
 call togglebg#map("<F5>")
 " Highlight line cursor is on
 set cursorline
@@ -194,7 +194,7 @@ set splitbelow
 set splitright
 " Since the above makes help default to opening below,
 " map F1 to go to help above
-nnoremap <F1> :topleft h
+nnoremap <F1> :topleft h<space>
 
 " Add a mapping to maximize the window when on Windows
 if has("win32")
@@ -207,7 +207,8 @@ endif
 "   n: Recognize numbered lists when formatting
 "   1: wrap after 1 letter words instead of before if possible
 "   j: Attempt to delete extraneous comment leaders when joinging lines
-set formatoptions=rqn1j
+" Has to be in an autocommand to override ftgpluin defaults
+autocmd Filetype * set formatoptions=rqn1j
 
 " Default to moving by display lines - allow moving by file lines
 nnoremap j gj
