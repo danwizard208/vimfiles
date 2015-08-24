@@ -111,7 +111,12 @@ colorscheme solarized
 " Set to dark background by default, and map <F5> to toggle
 set background=dark
 call togglebg#map("<F5>")
-
+" Highlight line cursor is on
+set cursorline
+" Highlight in 'error' column 80 - try not to extend past this
+set colorcolumn=80
+" Add a map to clear the colorcolumn when it's distracting
+nnoremap <leader>` :set colorcolumn=0<CR>
 " Open NERDTree with F2
 map <F2> :NERDTreeToggle<CR>
 " NERDTree should close when opening a file
@@ -170,12 +175,6 @@ set wildmenu
 set wildmode=list:longest,full
 " Visual flash instead of beep
 set visualbell
-" Highlight line cursor is on
-set cursorline
-" Highlight in 'error' column 80 - try not to extend past this
-set colorcolumn=80
-" Add a map to clear the colorcolumn when it's distracting
-nnoremap <leader>` :set colorcolumn=0<CR>
 " Automatically use magic mode for regexen
 " doesn't affect substitutions, add a mapping for that
 nnoremap / /\v
@@ -190,6 +189,12 @@ set incsearch
 set showmatch
 " Add a mapping to clear search highlighting
 nnoremap <leader><space> :noh<cr>
+" Default to splitting below and to the right
+set splitbelow
+set splitright
+" Since the above makes help default to opening below,
+" map F1 to go to help above
+nnoremap <F1> :topleft h
 
 " Add a mapping to maximize the window when on Windows
 if has("win32")
