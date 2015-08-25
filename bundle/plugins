@@ -10,4 +10,4 @@
 + vim-colors-solarize	https://github.com/altercation/vim-colors-solarized
 + vim-flagship			https://github.com/tpope/vim-flagship
 
-vim: se noet
+vim: noet
