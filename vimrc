@@ -170,8 +170,10 @@ let g:indent_guides_guide_size=1
 Helptags
 
 set encoding=utf-8
-" starts scrolling on 2nd line from top/bottom
+" Starts scrolling on 2nd line from top/bottom
 set scrolloff=2
+" Break lines at words
+set linebreak
 " Sets completion to something sane - see help
 set wildmenu
 set wildmode=list:longest,full
@@ -187,8 +189,9 @@ set smartcase
 " Subsittuions are global in line by default
 set gdefault
 set incsearch
-" When closing a bracket briefly jump to matching one
+" When closing a bracket briefly (0.2 seconds) jump to matching one
 set showmatch
+set matchtime=2
 " Add a mapping to clear search highlighting
 nnoremap <leader><space> :noh<cr>
 " Default to splitting below and to the right
