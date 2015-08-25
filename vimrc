@@ -203,6 +203,11 @@ if has("win32")
     nnoremap <leader><cr> :simalt ~x<cr>
 endif
 
+" Allow for hidden buffers
+"   This can be dangerous, but supposedly if learned to use effectively
+"   is very powerful. Also makes Scratch.vim work better
+set hidden
+
 " Text formatting options:
 "   r: insert comment leader after hitting Enter in insert mode
 "   q: format comments

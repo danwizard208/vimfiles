@@ -9,5 +9,6 @@
 + vim-indent-guides		https://github.com/nathanaelkane/vim-indent-guides
 + vim-colors-solarize	https://github.com/altercation/vim-colors-solarized
 + vim-flagship			https://github.com/tpope/vim-flagship
++ Scratch.vim			https://github.com/mtth/scratch.vim
 
 vim: noet
