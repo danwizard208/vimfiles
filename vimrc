@@ -199,7 +199,7 @@ nnoremap <leader><space> :noh<cr>
 
 " Add a mapping to maximize the window when on Windows
 if has("win32")
-    nnoremap <leader><cr> :simalt ~x<cr>
+    nnoremap <leader><cr> :simalt ~x<cr>:redraw<cr>
 endif
 
 " Allow for hidden buffers
