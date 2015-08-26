@@ -1,4 +1,6 @@
 " Pathogen setup
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = ["ctrlp.vim"]
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
@@ -194,12 +196,6 @@ set showmatch
 set matchtime=2
 " Add a mapping to clear search highlighting
 nnoremap <leader><space> :noh<cr>
-" Default to splitting below and to the right
-set splitbelow
-set splitright
-" Since the above makes help default to opening below,
-" map F1 to go to help above
-nnoremap <F1> :topleft h<space>
 
 " Add a mapping to maximize the window when on Windows
 if has("win32")
@@ -234,6 +230,14 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+" Options for GoldenView plugin 
+"   (a window autoresizer, also allows 'tile-split')
+let g:goldenview__enable_default_mapping = 0
+nmap <silent> <C-S>  <Plug>GoldenViewSplit
+nmap <silent> <F8>   <Plug>GoldenViewSwitchToggle
+nmap <silent> <C-M>  <Plug>GoldenViewSwitchMain
+nmap <silent> <C-N>  <Plug>GoldenViewNext
+nmap <silent> <C-P>  <Plug>GoldenViewPrevious
 
 " Quicker tab navigation, using similar mnemonics as windows
 " Alt is a pain to press see if there's a better way

@@ -10,5 +10,7 @@
 + vim-colors-solarize	https://github.com/altercation/vim-colors-solarized
 + vim-flagship			https://github.com/tpope/vim-flagship
 + Scratch.vim			https://github.com/mtth/scratch.vim
+- ctrlp.vim				https://github.com/kien/ctrlp.vim
++ GoldenView.Vim		https://github.com/zhaocai/GoldenView.Vim
 
 vim: noet
