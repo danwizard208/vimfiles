@@ -12,5 +12,7 @@
 + Scratch.vim			https://github.com/mtth/scratch.vim
 - ctrlp.vim				https://github.com/kien/ctrlp.vim
 - GoldenView.Vim		https://github.com/zhaocai/GoldenView.Vim
++ vim-airline			https://github.com/bling/vim-airline
++ vim-gitgutter			https://github.com/airblade/vim-gitgutter
 
 vim: noet
