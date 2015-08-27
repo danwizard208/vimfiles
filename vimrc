@@ -1,102 +1,63 @@
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
 " Pathogen setup
 " To disable a plugin, add it's bundle name to the following list
 let g:pathogen_disabled = ["ctrlp.vim", "GoldenView.Vim"]
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
-" Modified version of example vimrc from Bram
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
+" Quality of life mappings
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+" Make Y behave like C and D (screw vi-compatible)
+nnoremap Y y$
+" Use the system clipboard as the default register
+set clipboard=unnamed
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+" g-Enter for blank line before, Enter for a blank line after,
+" g-Ctrl-J to split line here
+nnoremap g<CR> moO<Esc>`o
+nnoremap <CR> moo<Esc>`o
+nnoremap g<C-J> i<CR><Esc>k$
+" The above <CR> mapping is undesirable in the cmd window, reset it
+autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
 
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+" In insert mode, break undo after each line break; more granular control
+inoremap <CR> <C-G>u<CR>
+
+" Default to moving by display lines - allow moving by file lines
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+" Quicker window navigation - just a chord instead of chord AND sequence
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Command to retile windows - puts them into a master pane + stack
+nnoremap <C-t> :windo wincmd K<CR> :wincmd H<CR>
+
+" Quicker tab navigation, using similar mnemonics as windows
+" Alt is a pain to press see if there's a better way
+nnoremap <A-h> gT
+nnoremap <A-l> gt
 
 " Don't use Ex mode, use Q for formatting
 noremap Q gq
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-
-" Syntax and search highlighting 
-syntax on
-set hlsearch
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  augroup END
-
-else
-
-
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
-
-" Stuff I made for myself
-"
-" localvimrc stuff - might add back
-" Don't ask before loading local vimrcs - good for now, might change later.
-" let g:localvimrc_ask=0
-" Don't run vimrc in a sandbox - seems to break match
-" let g:localvimrc_sandbox=0
-
-" Make Y behave like C and D (screw vi-compatible)
-nnoremap Y y$
-
-" Use the system clipboard as the default register
-set clipboard=unnamed
-
+" UI tweaks
 " Enable line numbers -
 " as of 7.4 this is relative numbers with absolute on current line
 set number
 set relativenumber
+" Display incomplete commands
+set showcmd
+" Keep 50 lines of command line history
+set history=50
 " Always use a status line and a tab line
 set laststatus=2
 set showtabline=2
@@ -119,25 +80,15 @@ set cursorline
 set colorcolumn=80
 " Add a map to clear the colorcolumn when it's distracting
 nnoremap <leader>` :set colorcolumn=0<CR>
-" Open NERDTree with F2
-map <F2> :NERDTreeToggle<CR>
-" NERDTree should close when opening a file
-let NERDTreeQuitOnOpen=1
-" Show line numbers in NERDTree window
-let NERDTreeShowLineNumbers=1
-" Show the bookmark bar by default
-let NERDTreeShowBookmarks=1
+" Show the cursor position all the time
+set ruler
+" Enable mouse, I guess
+if has('mouse')
+  set mouse=a
+endif
 
-" " Use Omni completion
-" set ofu=syntaxcomplete#Complete
-" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-" " Easytags configuration - don't use until we bugfix
-" " let g:loaded_easytags = 1
-" let g:easytags_dynamic_files = 2
-" let g:easytags_include_members = 1
-" let g:easytags_on_cursorhold = 0
-
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 " Use spaces instead of tabs, with width 4. Indenting is also width 4. Literal
 " tabs are 4. Deleting whitespace deletes by tabs.
 set tabstop=4
@@ -151,25 +102,6 @@ set autoindent
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
-" Colorscheme in terminal
-" if !has('gui_running')
-"     color relaxedgreen
-" endif
-
-" Shift-Enter for blank line before, Enter for a blank line after, 
-" Ctrl-J to split line here
-" nnoremap g<CR> moO<Esc>`o
-" nnoremap <CR> moo<Esc>`o
-" nnoremap <C-J> i<CR><Esc>k$
-
-" LatexSuite commands
-" let g:tex_flavor='latex'
-" set grepprg=grep\ -nH\ $*
-
-" command Gh GhciFile
-
-" With pathogen, need to use included Helptags function
-Helptags
 
 set encoding=utf-8
 " Starts scrolling on 2nd line from top/bottom
@@ -181,6 +113,11 @@ set wildmenu
 set wildmode=list:longest,full
 " Visual flash instead of beep
 set visualbell
+
+" Highlight matches
+set hlsearch
+" Add a mapping to clear search highlighting
+nnoremap <leader><space> :noh<cr>
 " Automatically use magic mode for regexen
 " doesn't affect substitutions, add a mapping for that
 nnoremap / /\v
@@ -194,8 +131,6 @@ set incsearch
 " When closing a bracket briefly (0.2 seconds) jump to matching one
 set showmatch
 set matchtime=2
-" Add a mapping to clear search highlighting
-nnoremap <leader><space> :noh<cr>
 
 " Add a mapping to maximize the window when on Windows
 if has("win32")
@@ -216,33 +151,35 @@ set hidden
 " Has to be in an autocommand to override ftgpluin defaults
 autocmd Filetype * set formatoptions=rqn1j
 
-" Default to moving by display lines - allow moving by file lines
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
 
-" Select linewise to the end of last pasted text
-nnoremap <leader>v V`]
+" Syntax and search highlighting
+syntax on
+" Enable file type detection.
+" Also load indent files, to automatically do language-dependent indenting.
+filetype plugin indent on
 
-" Quicker window navigation - just a chord instead of chord AND sequence
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-" Options for GoldenView plugin  - plugin misbehaving, disable it
-"   (a window autoresizer, also allows 'tile-split')
-" let g:goldenview__enable_default_mapping = 0
-" nmap <silent> <C-S>  <Plug>GoldenViewSplit
-" nmap <silent> <F8>   <Plug>GoldenViewSwitchToggle
-" nmap <silent> <C-M>  <Plug>GoldenViewSwitchMain
-" nmap <silent> <C-N>  <Plug>GoldenViewNext
-" nmap <silent> <C-P>  <Plug>GoldenViewPrevious
 
-" Command to retile windows - puts them into a master pane + stack
-nnoremap <C-t> :windo wincmd K<CR> :wincmd H<CR>
+" Open NERDTree with F2
+map <F2> :NERDTreeToggle<CR>
+" NERDTree should close when opening a file
+let NERDTreeQuitOnOpen=1
+" Show line numbers in NERDTree window
+let NERDTreeShowLineNumbers=1
+" Show the bookmark bar by default
+let NERDTreeShowBookmarks=1
 
-" Quicker tab navigation, using similar mnemonics as windows
-" Alt is a pain to press see if there's a better way
-nnoremap <A-h> gT
-nnoremap <A-l> gt
+
+" This was in the example vimrc; might happen automatically in vim now?
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+" Also don't do it when the mark is in the first line, that is the default
+" position when opening a file.
+autocmd BufReadPost *
+\ if line("'\"") > 1 && line("'\"") <= line("$") |
+\   exe "normal! g`\"" |
+\ endif
+
+
+" With pathogen, need to use included Helptags function
+Helptags
