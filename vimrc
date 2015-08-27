@@ -239,6 +239,9 @@ nnoremap <C-l> <C-w>l
 " nmap <silent> <C-N>  <Plug>GoldenViewNext
 " nmap <silent> <C-P>  <Plug>GoldenViewPrevious
 
+" Command to retile windows - puts them into a master pane + stack
+nnoremap <C-t> :windo wincmd K<CR> :wincmd H<CR>
+
 " Quicker tab navigation, using similar mnemonics as windows
 " Alt is a pain to press see if there's a better way
 nnoremap <A-h> gT
