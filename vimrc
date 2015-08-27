@@ -37,6 +37,14 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Experimental window resize mappings
+"   Unfortunately they're a bit cludgy right now because
+"   'standard' vim window resizing is a bit cludgy  
+windo nnoremap <C-Left> <
+windo nnoremap <C-Right> >
+windo nnoremap <C-Up> +
+windo nnoremap <C-Down> -
+
 " Command to retile windows - puts them into a master pane + stack
 nnoremap <C-t> :windo wincmd K<CR> :wincmd H<CR>
 
