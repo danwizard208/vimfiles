@@ -32,16 +32,25 @@ nnoremap gj j
 nnoremap gk k
 
 " Quicker window navigation - just a chord instead of chord AND sequence
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+"   Disabled while using dwm.vim
+if pathogen#is_disabled("dwm.vim")
+    nnoremap <C-h> <C-w>h
+    nnoremap <C-j> <C-w>j
+    nnoremap <C-k> <C-w>k
+    nnoremap <C-l> <C-w>l
+else
+    " Go to master pane
+    nnoremap <space> <C-w>h
+endif
 
 " Experimental window resize mappings
 "   Unfortunately they're a bit cludgy right now because
-"   'standard' vim window resizing is a bit cludgy  
-windo nnoremap <C-Left> <
-windo nnoremap <C-Right> >
+"   'standard' vim window resizing is a bit cludgy
+if pathogen#is_disabled("dwm.vim")
+"   Unecessary with dwm.vim
+    windo nnoremap <C-Left> <
+    windo nnoremap <C-Right> >
+endif
 windo nnoremap <C-Up> +
 windo nnoremap <C-Down> -
 

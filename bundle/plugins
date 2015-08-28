@@ -14,5 +14,6 @@
 - GoldenView.Vim		https://github.com/zhaocai/GoldenView.Vim
 + vim-airline			https://github.com/bling/vim-airline
 + vim-gitgutter			https://github.com/airblade/vim-gitgutter
++ dwm.vim				https://github.com/spolu/dwm.vim
 
 vim: noet
