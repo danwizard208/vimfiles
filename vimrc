@@ -3,7 +3,8 @@
 set nocompatible
 " Pathogen setup
 " To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = ["ctrlp.vim", "GoldenView.Vim"]
+let g:pathogen_disabled =
+            \["ctrlp.vim", "GoldenView.Vim", "dwm.vim"]
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
@@ -14,11 +15,6 @@ nnoremap Y y$
 " Use the system clipboard as the default register
 set clipboard=unnamed
 
-" g-Enter for blank line before, Enter for a blank line after,
-" g-Ctrl-J to split line here
-nnoremap g<CR> moO<Esc>`o
-nnoremap <CR> moo<Esc>`o
-nnoremap g<C-J> i<CR><Esc>k$
 " The above <CR> mapping is undesirable in the cmd window, reset it
 autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
 
@@ -97,7 +93,7 @@ set background=light
 call togglebg#map("<F5>")
 " Highlight line cursor is on
 set cursorline
-" Highlight in 'error' column 80 - try not to extend past this
+" Highlight column 80 - try not to extend past this
 set colorcolumn=80
 " Add a map to clear the colorcolumn when it's distracting
 nnoremap <leader>` :set colorcolumn=0<CR>
@@ -137,8 +133,6 @@ set visualbell
 
 " Highlight matches
 set hlsearch
-" Add a mapping to clear search highlighting
-nnoremap <leader><space> :noh<cr>
 " Automatically use magic mode for regexen
 " doesn't affect substitutions, add a mapping for that
 nnoremap / /\v
@@ -158,10 +152,19 @@ if has("win32")
     nnoremap <leader><cr> :simalt ~x<cr>:redraw<cr>
 endif
 
+" Not using for now, too complicated
 " Allow for hidden buffers
 "   This can be dangerous, but supposedly if learned to use effectively
 "   is very powerful. Also makes Scratch.vim work better
-set hidden
+" set hidden
+
+
+" Syntax and search highlighting
+syntax on
+" Enable file type detection.
+" Also load indent files, to automatically do language-dependent indenting.
+filetype plugin indent on
+
 
 " Text formatting options:
 "   r: insert comment leader after hitting Enter in insert mode
@@ -170,14 +173,8 @@ set hidden
 "   1: wrap after 1 letter words instead of before if possible
 "   j: Attempt to delete extraneous comment leaders when joinging lines
 " Has to be in an autocommand to override ftgpluin defaults
+
 autocmd Filetype * set formatoptions=rqn1j
-
-
-" Syntax and search highlighting
-syntax on
-" Enable file type detection.
-" Also load indent files, to automatically do language-dependent indenting.
-filetype plugin indent on
 
 
 " Open NERDTree with F2
@@ -188,18 +185,6 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeShowLineNumbers=1
 " Show the bookmark bar by default
 let NERDTreeShowBookmarks=1
-
-
-" This was in the example vimrc; might happen automatically in vim now?
-" When editing a file, always jump to the last known cursor position.
-" Don't do it when the position is invalid or when inside an event handler
-" (happens when dropping a file on gvim).
-" Also don't do it when the mark is in the first line, that is the default
-" position when opening a file.
-autocmd BufReadPost *
-\ if line("'\"") > 1 && line("'\"") <= line("$") |
-\   exe "normal! g`\"" |
-\ endif
 
 
 " With pathogen, need to use included Helptags function

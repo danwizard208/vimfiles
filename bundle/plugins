@@ -9,11 +9,12 @@
 + vim-indent-guides		https://github.com/nathanaelkane/vim-indent-guides
 + vim-colors-solarize	https://github.com/altercation/vim-colors-solarized
 + vim-flagship			https://github.com/tpope/vim-flagship
-+ Scratch.vim			https://github.com/mtth/scratch.vim
+- Scratch.vim			https://github.com/mtth/scratch.vim
 - ctrlp.vim				https://github.com/kien/ctrlp.vim
 - GoldenView.Vim		https://github.com/zhaocai/GoldenView.Vim
 + vim-airline			https://github.com/bling/vim-airline
 + vim-gitgutter			https://github.com/airblade/vim-gitgutter
-+ dwm.vim				https://github.com/spolu/dwm.vim
+- dwm.vim				https://github.com/spolu/dwm.vim
+- vim-bufferline		https://github.com/bling/vim-bufferline
 
 vim: noet
