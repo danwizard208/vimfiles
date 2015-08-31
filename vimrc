@@ -85,7 +85,11 @@ set guioptions-=r
 " Plaintext tab line in the GUI
 set guioptions-=e
 " Font
-set guifont=Consolas:h11:cANSI
+if has("win32")
+    set guifont=DejaVu_Sans_Mono_for_Powerline:h12
+    let g:airline_powerline_fonts=1
+endif
+let g:airline#extensions#hunks#enabled = 0
 " Use the solarized colorscheme, good light/dark most everywhere
 colorscheme solarized
 " Set to light background by default, and map <F5> to toggle
@@ -120,7 +124,7 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 
-set encoding=utf-8
+set encoding=utf8
 " Starts scrolling on 2nd line from top/bottom
 set scrolloff=2
 " Break lines at words
