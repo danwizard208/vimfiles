@@ -133,6 +133,8 @@ set visualbell
 
 " Highlight matches
 set hlsearch
+" Add a mapping to clear search highlighting
+nnoremap <leader><space> :noh<cr>
 " Automatically use magic mode for regexen
 " doesn't affect substitutions, add a mapping for that
 nnoremap / /\v
