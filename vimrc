@@ -16,7 +16,10 @@ nnoremap Y y$
 set clipboard=unnamed
 
 " The above <CR> mapping is undesirable in the cmd window, reset it
-autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
+augroup cmdwindow
+    autocmd!
+    autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
+augroup END
 
 " In insert mode, break undo after each line break; more granular control
 inoremap <CR> <C-G>u<CR>
@@ -60,6 +63,12 @@ nnoremap <A-l> gt
 
 " Don't use Ex mode, use Q for formatting
 noremap Q gq
+
+" Use H and L for in-line movement, put their old functions under leader
+nnoremap H ^
+nnoremap L $
+nnoremap <leader>H H
+nnoremap <leader>L L
 
 
 " UI tweaks
@@ -176,7 +185,10 @@ filetype plugin indent on
 "   j: Attempt to delete extraneous comment leaders when joinging lines
 " Has to be in an autocommand to override ftgpluin defaults
 
-autocmd Filetype * set formatoptions=rqn1j
+augroup format
+    autocmd!
+    autocmd Filetype * set formatoptions=rqn1j
+augroup END
 
 
 " Open NERDTree with F2
