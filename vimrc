@@ -1,14 +1,16 @@
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-" Pathogen setup
+
+" Pathogen setup"{{{
 " To disable a plugin, add it's bundle name to the following list
 let g:pathogen_disabled =
             \["ctrlp.vim", "GoldenView.Vim", "dwm.vim"]
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+"}}}
 
-" Quality of life mappings
+" Quality of life mappings"{{{
 
 " Make Y behave like C and D (screw vi-compatible)
 nnoremap Y y$
@@ -70,8 +72,14 @@ nnoremap L $
 nnoremap <leader>H H
 nnoremap <leader>L L
 
+" Sets completion to something sane - see help
+set wildmenu
+set wildmode=list:longest,full
+"}}}
 
-" UI tweaks
+" UI tweaks"{{{
+
+" On-screen information"{{{
 " Enable line numbers -
 " as of 7.4 this is relative numbers with absolute on current line
 set number
@@ -83,23 +91,6 @@ set history=50
 " Always use a status line and a tab line
 set laststatus=2
 set showtabline=2
-" No toolbar in the GUI
-set guioptions-=T
-set guioptions-=m
-set guioptions-=r
-" Plaintext tab line in the GUI
-set guioptions-=e
-" Font
-if has("win32")
-    set guifont=DejaVu_Sans_Mono_for_Powerline:h12
-    let g:airline_powerline_fonts=1
-endif
-let g:airline#extensions#hunks#enabled = 0
-" Use the solarized colorscheme, good light/dark most everywhere
-colorscheme solarized
-" Set to light background by default, and map <F5> to toggle
-set background=light
-call togglebg#map("<F5>")
 " Highlight line cursor is on
 set cursorline
 " Highlight column 80 - try not to extend past this
@@ -108,13 +99,47 @@ set colorcolumn=80
 nnoremap <leader>` :set colorcolumn=0<CR>
 " Show the cursor position all the time
 set ruler
-" Enable mouse, I guess
+" Visual flash instead of beep
+set visualbell
+" Don't put hunk-diff information in status bar
+let g:airline#extensions#hunks#enabled = 0
+"}}}
+
+" GUI {{{
+" No toolbar in the GUI
+set guioptions-=T
+set guioptions-=m
+set guioptions-=r
+" Plaintext tab line in the GUI
+set guioptions-=e
+"}}}
+
+" Font"{{{
+if has("win32")
+    set guifont=DejaVu_Sans_Mono_for_Powerline:h12
+    let g:airline_powerline_fonts=1
+endif
+"}}}
+
+" Use the solarized colorscheme, good light/dark most everywhere
+colorscheme solarized
+" Set to light background by default, and map <F5> to toggle
+set background=light
+call togglebg#map("<F5>")
+
 if has('mouse')
   set mouse=a
 endif
+set encoding=utf8
+" Starts scrolling on 2nd line from top/bottom
+set scrolloff=2
+" Break lines at words
+set linebreak
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
+"Tabs and indents"{{{
 " Use spaces instead of tabs, with width 4. Indenting is also width 4. Literal
 " tabs are 4. Deleting whitespace deletes by tabs.
 set tabstop=4
@@ -127,20 +152,10 @@ set autoindent
 " vim-indent-guides plugin settings
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
+"}}}
 
 
-set encoding=utf8
-" Starts scrolling on 2nd line from top/bottom
-set scrolloff=2
-" Break lines at words
-set linebreak
-" Sets completion to something sane - see help
-set wildmenu
-set wildmode=list:longest,full
-" Visual flash instead of beep
-set visualbell
-
-" Highlight matches
+" Highlight matches"{{{
 set hlsearch
 " Add a mapping to clear search highlighting
 nnoremap <leader><space> :noh<cr>
@@ -157,16 +172,14 @@ set incsearch
 " When closing a bracket briefly (0.2 seconds) jump to matching one
 set showmatch
 set matchtime=2
+"}}}
 
 " Add a mapping to maximize the window when on Windows
 if has("win32")
     nnoremap <leader><cr> :simalt ~x<cr>:redraw<cr>
 endif
 
-" Not using for now, too complicated
-" Allow for hidden buffers
-"   This can be dangerous, but supposedly if learned to use effectively
-"   is very powerful. Also makes Scratch.vim work better
+" Not using hidden buffers for now, too complicated
 " set hidden
 
 
@@ -175,9 +188,9 @@ syntax on
 " Enable file type detection.
 " Also load indent files, to automatically do language-dependent indenting.
 filetype plugin indent on
+"}}}
 
-
-" Text formatting options:
+" Text formatting options:"{{{
 "   r: insert comment leader after hitting Enter in insert mode
 "   q: format comments
 "   n: Recognize numbered lists when formatting
@@ -189,8 +202,9 @@ augroup format
     autocmd!
     autocmd Filetype * set formatoptions=rqn1j
 augroup END
+"}}}
 
-
+" NERDTree"{{{
 " Open NERDTree with F2
 map <F2> :NERDTreeToggle<CR>
 " NERDTree should close when opening a file
@@ -199,7 +213,7 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeShowLineNumbers=1
 " Show the bookmark bar by default
 let NERDTreeShowBookmarks=1
-
+"}}}
 
 " With pathogen, need to use included Helptags function
 Helptags
