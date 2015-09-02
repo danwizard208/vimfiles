@@ -60,8 +60,11 @@ nnoremap <C-t> :windo wincmd K<CR> :wincmd H<CR>
 
 " Quicker tab navigation, using similar mnemonics as windows
 " Alt is a pain to press see if there's a better way
-nnoremap <A-h> gT
-nnoremap <A-l> gt
+" nnoremap <A-h> gT
+" nnoremap <A-l> gt
+" it looks like I have to use the result of  to map these alt-keys
+nnoremap è gT
+nnoremap ì gt
 
 " Don't use Ex mode, use Q for formatting
 noremap Q gq
