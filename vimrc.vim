@@ -99,7 +99,7 @@ set cursorline
 " Highlight column 80 - try not to extend past this
 set colorcolumn=80
 " Add a map to clear the colorcolumn when it's distracting
-nnoremap <leader>` :set colorcolumn=0<CR>
+nnoremap <silent> <leader>` :set colorcolumn=0<CR>
 " Show the cursor position all the time
 set ruler
 " Visual flash instead of beep
@@ -161,7 +161,7 @@ let g:indent_guides_guide_size=1
 " Highlight matches"{{{
 set hlsearch
 " Add a mapping to clear search highlighting
-nnoremap <leader><space> :noh<cr>
+nnoremap <silent> <leader><space> :noh<cr>
 " Automatically use magic mode for regexen
 " doesn't affect substitutions, add a mapping for that
 nnoremap / /\v
