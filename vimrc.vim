@@ -104,8 +104,12 @@ nnoremap <silent> <leader>` :set colorcolumn=0<CR>
 set ruler
 " Visual flash instead of beep
 set visualbell
-" Don't put hunk-diff information in status bar
+" Don't put hunk-diff information in airline status bar
 let g:airline#extensions#hunks#enabled = 0
+" Maps to toggle and refresh whitespace checking in airline
+nnoremap <silent> <leader>a :AirlineToggleWhitespace<cr>
+nnoremap <silent> <leader>A
+            \ :AirlineToggleWhitespace<cr>:AirlineToggleWhitespace<cr>
 "}}}
 
 " GUI {{{
@@ -157,8 +161,9 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 "}}}
 
+"Search "{{{
 
-" Highlight matches"{{{
+" Highlight matches
 set hlsearch
 " Add a mapping to clear search highlighting
 nnoremap <silent> <leader><space> :noh<cr>
@@ -169,7 +174,7 @@ vnoremap / /\v
 " Regexen ignore case unless a capital appears
 set ignorecase
 set smartcase
-" Subsittuions are global in line by default
+" Substitutions are global in line by default
 set gdefault
 set incsearch
 " When closing a bracket briefly (0.2 seconds) jump to matching one
