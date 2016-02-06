@@ -16,16 +16,16 @@ foreach $plugin (@plugins)
         unless(-e $name)
         {
             # The plugin doesn't have a directory yet; clone the url
-            print "Running 'git clone $url'\n";
-            system("git clone $url");
+            print "Running 'git submodule add $url'\n";
+            system("git submodule add $url");
         }
         else
         {
             # The plugin already has a directory; pull latest from repo
-            chdir $name;
-            print "Running 'git pull' on $name\n";
-            system("git pull");
-            chdir "..";
+            # chdir $name;
+            # print "Running 'git pull' on $name\n";
+            # system("git pull");
+            # chdir "..";
         }
     }
 }
