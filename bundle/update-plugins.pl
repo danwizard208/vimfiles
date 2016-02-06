@@ -6,7 +6,7 @@ foreach $plugin (@plugins)
 {
     # Plugins lines start with +<space>; ignore other lines
     # (this was added to enable a vim modeline in the plugins file)
-    if($plugin ~= /^\+ /)
+    if($plugin =~ /^\+ /)
     {
         $plugin =~ s/^\+ //;
         chomp($plugin);
