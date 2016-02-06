@@ -16,5 +16,10 @@
 + vim-gitgutter			https://github.com/airblade/vim-gitgutter
 - dwm.vim				https://github.com/spolu/dwm.vim
 - vim-bufferline		https://github.com/bling/vim-bufferline
++ vim-easy-align		https://github.com/junegunn/vim-easy-align
++ dbext.vim				https://github.com/vim-scripts/dbext.vim
++ vim-localrc			https://github.com/thinca/vim-localrc
++ vim-fontzoom			https://github.com/thinca/vim-fontzoom
++ vim-signature			https://github.com/kshenoy/vim-signature
 
 vim: noet
