@@ -56,7 +56,7 @@ windo nnoremap <C-Up> +
 windo nnoremap <C-Down> -
 
 " Command to retile windows - puts them into a master pane + stack
-nnoremap <C-t> :windo wincmd K<CR> :wincmd H<CR>
+" nnoremap <C-t> :windo wincmd K<CR> :wincmd H<CR>
 
 " Quicker tab navigation, using similar mnemonics as windows
 " Alt is a pain to press see if there's a better way
