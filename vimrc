@@ -5,7 +5,7 @@ set nocompatible
 " Pathogen setup"{{{
 " To disable a plugin, add it's bundle name to the following list
 let g:pathogen_disabled =
-            \["ctrlp.vim", "GoldenView.Vim", "dwm.vim"]
+            \["GoldenView.Vim", "dwm.vim"]
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 "}}}
