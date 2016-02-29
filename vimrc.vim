@@ -17,12 +17,6 @@ nnoremap Y y$
 " Use the system clipboard as the default register
 set clipboard=unnamed
 
-" The above <CR> mapping is undesirable in the cmd window, reset it
-augroup cmdwindow
-    autocmd!
-    autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
-augroup END
-
 " In insert mode, break undo after each line break; more granular control
 inoremap <CR> <C-G>u<CR>
 
@@ -121,6 +115,9 @@ set ruler
 set visualbell
 " Don't put hunk-diff information in airline status bar
 let g:airline#extensions#hunks#enabled = 0
+" Maps to check for and zap trailing whitespace
+nnoremap <silent> <leader>w :match ErrorMsg /\v\s+$/<cr>
+nnoremap <silent> <leader>W     mw:silent %s/\v\s+$//<cr>`w
 " Maps to toggle and refresh whitespace checking in airline
 nnoremap <silent> <leader>a :AirlineToggleWhitespace<cr>
 nnoremap <silent> <leader>A
@@ -154,7 +151,7 @@ if has('mouse')
 endif
 set encoding=utf8
 " Starts scrolling on 2nd line from top/bottom
-set scrolloff=2
+set scrolloff=1
 " Break lines at words
 set linebreak
 
@@ -201,6 +198,10 @@ set matchtime=2
 if has("win32")
     nnoremap <leader><cr> :simalt ~x<cr>:redraw<cr>
 endif
+
+" More natural splits
+set splitbelow
+set splitright
 
 " Not using hidden buffers for now, too complicated
 " set hidden
