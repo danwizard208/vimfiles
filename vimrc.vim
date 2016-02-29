@@ -78,6 +78,21 @@ nnoremap <leader>L L
 " Sets completion to something sane - see help
 set wildmenu
 set wildmode=list:longest,full
+
+" Count number of times last search matches in the buffer
+nnoremap <leader>n :%s///n<CR>
+
+" Seemless editing restoration"{{{
+set undofile
+set undodir-=.
+if has("win32")
+    set undodir+=~/vim_undo
+else
+    set undodir+=~/.vim_undo
+endif
+"}}}
+
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
 "}}}
 
 " UI tweaks"{{{
