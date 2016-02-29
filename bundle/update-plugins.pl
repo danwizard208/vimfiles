@@ -6,7 +6,7 @@ foreach $plugin (@plugins)
 {
     # Plugins lines start with +<space>; ignore other lines
     # (this was added to enable a vim modeline in the plugins file)
-    if($plugin ~= /^\+ /)
+    if($plugin =~ /^\+ /)
     {
         $plugin =~ s/^\+ //;
         chomp($plugin);
@@ -16,16 +16,16 @@ foreach $plugin (@plugins)
         unless(-e $name)
         {
             # The plugin doesn't have a directory yet; clone the url
-            print "Running 'git clone $url'\n";
-            system("git clone $url");
+            print "Running 'git submodule add $url'\n";
+            system("git submodule add $url");
         }
         else
         {
             # The plugin already has a directory; pull latest from repo
-            chdir $name;
-            print "Running 'git pull' on $name\n";
-            system("git pull");
-            chdir "..";
+            # chdir $name;
+            # print "Running 'git pull' on $name\n";
+            # system("git pull");
+            # chdir "..";
         }
     }
 }
