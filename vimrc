@@ -17,12 +17,6 @@ nnoremap Y y$
 " Use the system clipboard as the default register
 set clipboard=unnamed
 
-" The above <CR> mapping is undesirable in the cmd window, reset it
-augroup cmdwindow
-    autocmd!
-    autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
-augroup END
-
 " In insert mode, break undo after each line break; more granular control
 inoremap <CR> <C-G>u<CR>
 
@@ -82,6 +76,21 @@ nnoremap <leader>l :lcd %:h<CR>
 " Sets completion to something sane - see help
 set wildmenu
 set wildmode=list:longest,full
+
+" Count number of times last search matches in the buffer
+nnoremap <leader>n :%s///n<CR>
+
+" Seemless editing restoration"{{{
+set undofile
+set undodir-=.
+if has("win32")
+    set undodir+=~/vim_undo
+else
+    set undodir+=~/.vim_undo
+endif
+"}}}
+
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
 "}}}
 
 " UI tweaks"{{{
@@ -110,6 +119,9 @@ set ruler
 set visualbell
 " Don't put hunk-diff information in airline status bar
 let g:airline#extensions#hunks#enabled = 0
+" Maps to check for and zap trailing whitespace
+nnoremap <silent> <leader>w :match ErrorMsg /\v\s+$/<cr>
+nnoremap <silent> <leader>W     mw:silent %s/\v\s+$//<cr>`w
 " Maps to toggle and refresh whitespace checking in airline
 nnoremap <silent> <leader>a :AirlineToggleWhitespace<cr>
 nnoremap <silent> <leader>A
@@ -144,7 +156,7 @@ if has('mouse')
 endif
 set encoding=utf8
 " Starts scrolling on 2nd line from top/bottom
-set scrolloff=2
+set scrolloff=1
 " Break lines at words
 set linebreak
 
@@ -191,6 +203,10 @@ set matchtime=2
 if has("win32")
     nnoremap <leader><cr> :simalt ~x<cr>:redraw<cr>
 endif
+
+" More natural splits
+set splitbelow
+set splitright
 
 " Not using hidden buffers for now, too complicated
 " set hidden
