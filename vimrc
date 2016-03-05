@@ -75,6 +75,10 @@ nnoremap L $
 nnoremap <leader>H H
 nnoremap <leader>L L
 
+" lcd to buffer file's directory
+nnoremap <leader>l :lcd %:h<CR>
+
+
 " Sets completion to something sane - see help
 set wildmenu
 set wildmode=list:longest,full
