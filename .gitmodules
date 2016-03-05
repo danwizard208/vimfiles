@@ -49,12 +49,15 @@
 [submodule "bundle/dbext.vim"]
 	path = bundle/dbext.vim
 	url = https://github.com/vim-scripts/dbext.vim
+    ignore = untracked
 [submodule "bundle/vim-localrc"]
 	path = bundle/vim-localrc
 	url = https://github.com/thinca/vim-localrc
+    ignore = untracked
 [submodule "bundle/vim-fontzoom"]
 	path = bundle/vim-fontzoom
 	url = https://github.com/thinca/vim-fontzoom
+    ignore = untracked
 [submodule "bundle/vim-signature"]
 	path = bundle/vim-signature
 	url = https://github.com/kshenoy/vim-signature
