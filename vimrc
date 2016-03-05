@@ -1,3 +1,5 @@
+" vim: foldmethod=marker
+
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -88,9 +90,10 @@ if has("win32")
 else
     set undodir+=~/.vim_undo
 endif
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
 "}}}
 
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
+let g:SuperTabDefaultCompletionType = "context" 
 "}}}
 
 " UI tweaks"{{{
