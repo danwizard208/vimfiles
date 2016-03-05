@@ -70,3 +70,12 @@
 [submodule "bundle/vim-tmux"]
 	path = bundle/vim-tmux
 	url = https://github.com/tmux-plugins/vim-tmux
+[submodule "bundle/vim-csharp"]
+	path = bundle/vim-csharp
+	url = https://github.com/OrangeT/vim-csharp
+[submodule "bundle/vim-latex"]
+	path = bundle/vim-latex
+	url = https://github.com/vim-latex/vim-latex
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab
