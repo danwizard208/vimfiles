@@ -7,7 +7,7 @@ set nocompatible
 " Pathogen setup"{{{
 " To disable a plugin, add it's bundle name to the following list
 let g:pathogen_disabled =
-            \["GoldenView.Vim", "dwm.vim"]
+            \["vim-localrc", "dbext.vim"]
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 "}}}
@@ -29,25 +29,16 @@ nnoremap gj j
 nnoremap gk k
 
 " Quicker window navigation - just a chord instead of chord AND sequence
-"   Disabled while using dwm.vim
-if pathogen#is_disabled("dwm.vim")
-    nnoremap <C-h> <C-w>h
-    nnoremap <C-j> <C-w>j
-    nnoremap <C-k> <C-w>k
-    nnoremap <C-l> <C-w>l
-else
-    " Go to master pane
-    nnoremap <space> <C-w>h
-endif
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Experimental window resize mappings
 "   Unfortunately they're a bit cludgy right now because
 "   'standard' vim window resizing is a bit cludgy
-if pathogen#is_disabled("dwm.vim")
-"   Unecessary with dwm.vim
-    windo nnoremap <C-Left> <
-    windo nnoremap <C-Right> >
-endif
+windo nnoremap <C-Left> <
+windo nnoremap <C-Right> >
 windo nnoremap <C-Up> +
 windo nnoremap <C-Down> -
 
@@ -166,6 +157,9 @@ set linebreak
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+set splitbelow 
+set splitright
+
 "Tabs and indents"{{{
 " Use spaces instead of tabs, with width 4. Indenting is also width 4. Literal
 " tabs are 4. Deleting whitespace deletes by tabs.
@@ -249,3 +243,5 @@ let NERDTreeShowBookmarks=1
 
 " With pathogen, need to use included Helptags function
 Helptags
+
+" vim: foldmethod=marker
