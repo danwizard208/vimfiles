@@ -7,7 +7,7 @@ set nocompatible
 " Pathogen setup"{{{
 " To disable a plugin, add it's bundle name to the following list
 let g:pathogen_disabled =
-            \["vim-localrc", "dbext.vim"]
+            \["vim-localrc", "dbext.vim", "vim-latex"]
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 "}}}
@@ -84,7 +84,7 @@ endif
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
 "}}}
 
-let g:SuperTabDefaultCompletionType = "context" 
+let g:SuperTabDefaultCompletionType = "context"
 "}}}
 
 " UI tweaks"{{{
@@ -157,7 +157,7 @@ set linebreak
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set splitbelow 
+set splitbelow
 set splitright
 
 "Tabs and indents"{{{
