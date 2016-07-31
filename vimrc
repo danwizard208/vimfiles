@@ -1,8 +1,27 @@
 " vim: foldmethod=marker
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+" Neovim specific {{{
+if(!has('nvim')) " Unecessary in neovim
+    " Use Vim settings, rather than Vi settings (much better!).
+    " This must be first, because it changes other options as a side effect.
+    set nocompatible
+endif
+
+if(has('nvim'))
+    " More convenient escape from terminal mode
+    tnoremap  
+
+    " Open terminal in new tab from any normalish mode
+    nnoremap  :tabe<CR>:term<CR>
+    vnoremap  :tabe<CR>:term<CR>
+    tnoremap  :tabe<CR>:term<CR>
+
+    " Open terminal in new window from any normalish mode
+    nnoremap  :sp<CR>:term<CR>
+    vnoremap  :sp<CR>:term<CR>
+    tnoremap  :sp<CR>:term<CR>
+endif
+" }}}
 
 " Pathogen setup"{{{
 " To disable a plugin, add it's bundle name to the following list
