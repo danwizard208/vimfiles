@@ -72,8 +72,8 @@ nnoremap <C-Down> -
 " nnoremap <A-h> gT
 " nnoremap <A-l> gt
 " it looks like I have to use the result of  to map these alt-keys
-nnoremap è gT
-nnoremap ì gt
+nnoremap <M-h> gT
+nnoremap <M-l> gt
 
 " Don't use Ex mode, use Q for formatting
 noremap Q gq
