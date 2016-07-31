@@ -1,0 +1,2 @@
+plug.vim is the implementation of vim-plug, the plugin manager I am using.
+The vim-plug project is hosted on github: https://github.com/junegunn/vim-plug
