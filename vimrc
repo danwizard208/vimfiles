@@ -21,12 +21,22 @@ if(has('nvim'))
 endif
 " }}}
 
-" Pathogen setup"{{{
-" To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled =
-            \["vim-localrc", "dbext.vim", "vim-latex"]
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+" Plugin setup using vim-plug {{{
+call plug#begin('~/.cached/vim/plugged')
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-flagship'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/vim-easy-align'
+Plug 'kshenoy/vim-signature'
+Plug 'lifepillar/vim-solarized8'
+call plug#end()
 "}}}
 
 " Quality of life mappings"{{{
@@ -157,10 +167,10 @@ let g:airline_powerline_fonts=1
 "}}}
 
 " Use the solarized colorscheme, good light/dark most everywhere
-colorscheme solarized
+colorscheme solarized8_dark
 " Set to light background by default, and map <F5> to toggle
-set background=light
-call togglebg#map("<F5>")
+" set background=light
+" call togglebg#map("<F5>")
 
 if has('mouse')
   set mouse=a
@@ -259,9 +269,6 @@ let NERDTreeShowBookmarks=1
 let NERDTreeDirArrowExpandable = "▸"
 let NERDTreeDirArrowCollapsible = "▾"
 "}}}
-
-" With pathogen, need to use included Helptags function
-Helptags
 
 " Include local overrides
 source vimrc.local
