@@ -75,9 +75,6 @@ nnoremap <C-Down> -
 nnoremap <M-h> gT
 nnoremap <M-l> gt
 
-" Don't use Ex mode, use Q for formatting
-noremap Q gq
-
 " Use H and L for in-line movement, put their old functions under leader
 nnoremap H ^
 nnoremap L $
