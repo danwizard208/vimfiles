@@ -40,6 +40,7 @@ call plug#end()
 "}}}
 
 " Quality of life mappings"{{{
+let mapleader = " "
 
 " Make Y behave like C and D (screw vi-compatible)
 nnoremap Y y$
