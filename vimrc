@@ -152,7 +152,7 @@ set guioptions-=e
 
 " Font"{{{
 if has("win32")
-    set guifont=Droid_Sans_Mono_for_Powerline:h12
+    set guifont=DejaVu_Sans_Mono_for_Powerline:h12:cANSI
     let g:airline_powerline_fonts=1
 endif
 let g:airline_powerline_fonts=1
@@ -258,6 +258,8 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeShowLineNumbers=1
 " Show the bookmark bar by default
 let NERDTreeShowBookmarks=1
+let NERDTreeDirArrowExpandable = "▸"
+let NERDTreeDirArrowCollapsible = "▾"
 "}}}
 
 " With pathogen, need to use included Helptags function
