@@ -11,15 +11,13 @@ if(has('nvim'))
     " More convenient escape from terminal mode
     tnoremap  
 
-    " Open terminal in new tab from any normalish mode
+    " Open terminal in new tab
     nnoremap  :tabe<CR>:term<CR>
     vnoremap  :tabe<CR>:term<CR>
-    tnoremap  :tabe<CR>:term<CR>
 
-    " Open terminal in new window from any normalish mode
+    " Open terminal in new window
     nnoremap  :sp<CR>:term<CR>
     vnoremap  :sp<CR>:term<CR>
-    tnoremap  :sp<CR>:term<CR>
 endif
 " }}}
 
