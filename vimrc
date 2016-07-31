@@ -36,7 +36,7 @@ execute pathogen#infect()
 " Make Y behave like C and D (screw vi-compatible)
 nnoremap Y y$
 " Use the system clipboard as the default register
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " In insert mode, break undo after each line break; more granular control
 inoremap <CR> <C-G>u<CR>
@@ -56,10 +56,10 @@ nnoremap <C-l> <C-w>l
 " Experimental window resize mappings
 "   Unfortunately they're a bit cludgy right now because
 "   'standard' vim window resizing is a bit cludgy
-windo nnoremap <C-Left> <
-windo nnoremap <C-Right> >
-windo nnoremap <C-Up> +
-windo nnoremap <C-Down> -
+nnoremap <C-Left> <
+nnoremap <C-Right> >
+nnoremap <C-Up> +
+nnoremap <C-Down> -
 
 " Command to retile windows - puts them into a master pane + stack
 " nnoremap <C-t> :windo wincmd K<CR> :wincmd H<CR>
