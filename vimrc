@@ -263,4 +263,7 @@ let NERDTreeShowBookmarks=1
 " With pathogen, need to use included Helptags function
 Helptags
 
+" Include local overrides
+source vimrc.local
+
 " vim: foldmethod=marker
