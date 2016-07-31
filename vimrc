@@ -36,6 +36,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/vim-easy-align'
 Plug 'kshenoy/vim-signature'
 Plug 'lifepillar/vim-solarized8'
+Plug 'ervandew/supertab'
 call plug#end()
 "}}}
 
@@ -103,7 +104,16 @@ endif
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
 "}}}
 
+" Completion settings {{{
+set cot=menu,preview,longest
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabLongestEnhanced = 1
+let g:SuperTabLongestHighlight = 1
+autocmd FileType *
+    \ if &omnifunc != '' |
+    \   call SuperTabChain(&omnifunc, "<c-p>") |
+    \ endif
+"}}}
 "}}}
 
 " UI tweaks"{{{
