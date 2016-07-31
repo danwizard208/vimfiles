@@ -50,12 +50,6 @@ set clipboard=unnamedplus
 " In insert mode, break undo after each line break; more granular control
 inoremap <CR> <C-G>u<CR>
 
-" Default to moving by display lines - allow moving by file lines
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
-
 " Quicker window navigation - just a chord instead of chord AND sequence
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
