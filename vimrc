@@ -22,7 +22,7 @@ endif
 " }}}
 
 " Plugin setup using vim-plug {{{
-call plug#begin('~/.cached/vim/plugged')
+call plug#begin('~/.cache/vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
