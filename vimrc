@@ -186,6 +186,8 @@ endif
 let g:airline_powerline_fonts=1
 "}}}
 
+" Solarized8 settings
+let g:solarized_term_italics=1
 colorscheme solarized8_light_high
 " Use <F5> to toggle between light/dark solarized colorschemes
 nnoremap <F5> :<c-u>exe "colors" (g:colors_name =~# "dark"
