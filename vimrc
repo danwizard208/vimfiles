@@ -37,6 +37,9 @@ Plug 'junegunn/vim-easy-align'
 Plug 'kshenoy/vim-signature'
 Plug 'lifepillar/vim-solarized8'
 Plug 'ervandew/supertab'
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
 call plug#end()
 "}}}
 
@@ -113,6 +116,21 @@ autocmd FileType *
     \ if &omnifunc != '' |
     \   call SuperTabChain(&omnifunc, "<c-p>") |
     \ endif
+"}}}
+
+" Incsearch plugin settings {{{
+nmap /  <Plug>(incsearch-forward)
+vmap /  <Plug>(incsearch-forward)
+nmap ?  <Plug>(incsearch-backward)
+vmap ?  <Plug>(incsearch-backward)
+nmap g/ <Plug>(incsearch-stay)
+vmap g/ <Plug>(incsearch-stay)
+nmap z/ <Plug>(incsearch-fuzzy-/)
+vmap z/ <Plug>(incsearch-fuzzy-/)
+nmap z? <Plug>(incsearch-fuzzy-?)
+vmap z? <Plug>(incsearch-fuzzy-?)
+nmap zg/ <Plug>(incsearch-fuzzy-stay)
+vmap zg/ <Plug>(incsearch-fuzzy-stay)
 "}}}
 "}}}
 
@@ -209,11 +227,7 @@ let g:indent_guides_guide_size=1
 " Highlight matches
 set hlsearch
 " Add a mapping to clear search highlighting
-nnoremap <silent> <leader><space> :noh<cr>
-" Automatically use magic mode for regexen
-" doesn't affect substitutions, add a mapping for that
-nnoremap / /\v
-vnoremap / /\v
+nnoremap <silent> <leader>\ :nohlsearch<cr>
 " Regexen ignore case unless a capital appears
 set ignorecase
 set smartcase
