@@ -186,11 +186,12 @@ endif
 let g:airline_powerline_fonts=1
 "}}}
 
-" Use the solarized colorscheme, good light/dark most everywhere
-colorscheme solarized8_dark
-" Set to light background by default, and map <F5> to toggle
-" set background=light
-" call togglebg#map("<F5>")
+colorscheme solarized8_light_high
+" Use <F5> to toggle between light/dark solarized colorschemes
+nnoremap <F5> :<c-u>exe "colors" (g:colors_name =~# "dark"
+    \ ? substitute(g:colors_name, 'dark', 'light', '')
+    \ : substitute(g:colors_name, 'light', 'dark', '')
+    \ )<cr><cr>
 
 if has('mouse')
   set mouse=a
